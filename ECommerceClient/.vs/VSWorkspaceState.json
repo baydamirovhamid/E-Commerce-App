@@ -3,14 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\guards",
-    "\\src\\app\\guards\\common",
     "\\src\\app\\services",
     "\\src\\app\\services\\common",
+    "\\src\\app\\services\\common\\models",
     "\\src\\app\\ui",
     "\\src\\app\\ui\\components",
     "\\src\\app\\ui\\components\\login"
   ],
-  "SelectedNode": "\\.angular",
+  "SelectedNode": "\\src\\app\\ui\\components\\login\\login.component.ts",
   "PreviewInSolutionExplorer": false
 }

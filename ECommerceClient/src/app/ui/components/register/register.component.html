@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+            <div class="form-group">
+                <label for="nameSurname">Name Surname</label>
+                <input type="text" formControlName="nameSurname" class="form-control" id="nameSurname" placeholder="Name Surname" [ngClass]="{'is-invalid': submitted && component.nameSurname.errors}">
+                <small class="form-text text-muted invalid-feedback" *ngIf="submitted && component.nameSurname.errors?.required">First name fields cannot be left empty.</small>
+                <small class="form-text text-muted invalid-feedback" *ngIf="submitted && (component.nameSurname.errors?.maxlength || component.nameSurname.errors?.minlength)">Please enter your first and last name between 3 and 50 characters.</small>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control" id="username" [ngClass]="{'is-invalid': submitted && component.username.errors}" placeholder="Username">
+                <small class="form-text text-muted invalid-feedback" *ngIf="submitted && component.username.errors?.required">Please do not leave the username field empty.</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email" [ngClass]="{'is-invalid': submitted && component.email.errors}">
+                <small class="form-text text-muted invalid-feedback" *ngIf="submitted && component.email.errors?.required">Please do not leave the email field empty.</small>
+                <small class="form-text text-muted invalid-feedback" *ngIf="submitted && component.email.errors?.email">Please enter a valid email address.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password" [ngClass]="{'is-invalid': submitted && component.password.errors}">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control" id="password" placeholder="Confirm Password" [ngClass]="{'is-invalid': submitted && component.confirmPassword.errors}">
+                <small *ngIf="submitted && frm.hasError('notSame')">Please confirm your password.</small>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>

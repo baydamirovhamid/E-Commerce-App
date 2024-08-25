@@ -4,12 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\services",
-    "\\src\\app\\services\\common",
-    "\\src\\app\\services\\common\\models",
-    "\\src\\app\\ui",
-    "\\src\\app\\ui\\components",
-    "\\src\\app\\ui\\components\\login"
+    "\\src\\app\\services\\common"
   ],
-  "SelectedNode": "\\src\\app\\services\\common\\models\\user-auth.service.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

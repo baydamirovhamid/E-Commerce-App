@@ -10,6 +10,6 @@
     "\\src\\app\\ui\\components",
     "\\src\\app\\ui\\components\\login"
   ],
-  "SelectedNode": "\\src\\app\\ui\\components\\login\\login.component.ts",
+  "SelectedNode": "\\src\\app\\services\\common\\models\\user-auth.service.ts",
   "PreviewInSolutionExplorer": false
 }

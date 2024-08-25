@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Abstractions.Token;
+﻿using ECommerceAPI.Application.Abstractions.Services.Authentications;
+using ECommerceAPI.Application.Abstractions.Token;
 using ECommerceAPI.Application.DTOs;
 using ECommerceAPI.Application.Exceptions;
 using MediatR;
@@ -9,39 +10,21 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.LoginUser
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommandRequest, LoginUserCommandResponse>
     {
-        readonly UserManager<U.AppUser> _userManager;
-        readonly SignInManager<U.AppUser> _signInManager;
-        readonly ITokenHandler _tokenHandler;
+        readonly IInternalAuthentication _internalAuthentication;
 
-        public LoginUserCommandHandler(UserManager<U.AppUser> userManager, SignInManager<U.AppUser> signInManager, ITokenHandler tokenHandler)
+        public LoginUserCommandHandler(IInternalAuthentication internalAuthentication)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _tokenHandler = tokenHandler;
+            _internalAuthentication = internalAuthentication;
         }
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
         {
-            U.AppUser user = await _userManager.FindByNameAsync(request.UserNameOrEmail);
+           var token = await _internalAuthentication.LoginAsync(request.UserNameOrEmail, request.Password, 15);
 
-            if (user == null)
-                user = await _userManager.FindByEmailAsync(request.UserNameOrEmail);
-
-            if (user == null)
-                throw new NotFoundUserException();
-
-            SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);    //Authentication is succeed!
-
-            if (result.Succeeded)
+            return new LoginUserSuccessCommandResponse()
             {
-                Token token = _tokenHandler.CreateAccessToken(5);
-
-                return new LoginUserSuccessCommandResponse()
-                {
-                    Token = token,
-                };
-            }
-            throw new AuthenticationErrorException();
+                Token = token,
+            };
         }
     }
 }

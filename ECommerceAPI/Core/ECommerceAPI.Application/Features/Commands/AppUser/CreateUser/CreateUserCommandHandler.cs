@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Exceptions;
+﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.DTOs.User;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using U = ECommerceAPI.Domain.Entities.Identity;
@@ -8,35 +9,29 @@ namespace ECommerceAPI.Application.Features.Commands.AppUser.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest, CreateUserCommandResponse>
     {
-        readonly UserManager<U.AppUser> _userManager;
+        readonly IUserService _userService;
 
-        public CreateUserCommandHandler(UserManager<U.AppUser> userManager)
+        public CreateUserCommandHandler(IUserService userService)
         {
-            _userManager = userManager;
+            _userService = userService;
         }
 
         public async Task<CreateUserCommandResponse> Handle(CreateUserCommandRequest request, CancellationToken cancellationToken)
         {
-            IdentityResult result = await _userManager.CreateAsync(new()
+            CreateUserResponseDto response = await _userService.CreateAsync(new()
             {
-                Id = Guid.NewGuid().ToString(),
-                UserName = request.Username,
                 Email = request.Email,
                 NameSurname = request.NameSurname,
+                Password = request.Password,
+                ConfirmPassword = request.ConfirmPassword,
+                Username = request.Username,
+            });
+            return new()
+            {
+                Message = response.Message,
+                Succeeded = response.Succeeded,
+            };
 
-
-            }, request.Password);
-
-            CreateUserCommandResponse response = new() { Succeeded = result.Succeeded };
-
-            if (result.Succeeded)
-                response.Message = "User created successfully!";
-
-            else
-                foreach (var error in result.Errors)
-                    response.Message += $"{error.Code} - {error.Description}<br>";
-
-            return response;
         }
     }
 }

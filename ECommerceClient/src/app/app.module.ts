@@ -14,7 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { JwtModule } from '@auth0/angular-jwt'
 import { LoginComponent } from './ui/components/login/login.component';
-import {  GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
+import {  FacebookLoginProvider, GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import {  GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider("10811547226-9tjqu8hlv815f4oj7aso127drhr0i743.apps.googleusercontent.com")
-          }
+          },
         ],
         onError: err => console.log(err)
       } as SocialAuthServiceConfig,

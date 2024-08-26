@@ -23,12 +23,31 @@ export class UserAuthService {
 
     if (tokenResponse) {
       localStorage.setItem("accessToken", tokenResponse.token.accessToken);
+      localStorage.setItem("refreshToken", tokenResponse.token.refreshToken);
 
       this.toastrService.message("User login has been successfully completed!", "Success", {
         messageType: ToastrMessageType.Success,
         position: ToastrPosition.TopRight
       });
     }
+    callBackFunction();
+  }
+
+
+
+  async refreshTokenLogin(refreshToken: string, callBackFunction?: () => void): Promise<any> {
+    const observable: Observable<any | TokenResponse> = this.httpClientService.post({
+      action: "RefreshTokenLogin",
+      controller: "auth"
+    }, { refreshToken: refreshToken });
+
+    const tokenResponse: TokenResponse = await firstValueFrom(observable) as TokenResponse;
+
+    if (tokenResponse) {
+      localStorage.setItem("accessToken", tokenResponse.token.accessToken);
+      localStorage.setItem("refreshToken", tokenResponse.token.refreshToken);
+    }
+
     callBackFunction();
   }
 
@@ -42,6 +61,7 @@ export class UserAuthService {
 
     if (tokenResponse) {
       localStorage.setItem("accessToken", tokenResponse.token.accessToken);
+      localStorage.setItem("refreshToken", tokenResponse.token.refreshToken);
 
       this.toastrService.message("Login has been successfully completed through Google.", "The login was successful.", {
         messageType: ToastrMessageType.Success,

@@ -1,10 +1,5 @@
 ﻿using ECommerceAPI.Application.Abstractions.Services.Authentications;
-using ECommerceAPI.Application.Abstractions.Token;
-using ECommerceAPI.Application.DTOs;
-using ECommerceAPI.Application.Exceptions;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
-using U = ECommerceAPI.Domain.Entities.Identity;
 
 namespace ECommerceAPI.Application.Features.Commands.AppUser.LoginUser
 {

@@ -1,10 +1,9 @@
 ﻿using ECommerceAPI.Application.Repositories;
-using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Persistence.Contexts;
 
-namespace ECommerceAPI.Persistence.Repositories
+namespace ECommerceAPI.Persistence.Repositories.Customer
 {
-    public class CustomerWriteRepository : WriteRepository<Customer>, ICustomerWriteRepository
+    public class CustomerWriteRepository : WriteRepository<ECommerceAPI.Domain.Entities.Customer>, ICustomerWriteRepository
     {
         public CustomerWriteRepository(ECommerceAPIDbContext context) : base(context)
         {

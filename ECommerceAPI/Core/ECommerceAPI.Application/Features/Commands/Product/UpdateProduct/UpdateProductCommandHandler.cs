@@ -7,6 +7,7 @@ namespace ECommerceAPI.Application.Features.Commands.Product.UpdateProduct
     {
         readonly IProductReadRepository _productReadRepository;
         readonly IProductWriteRepository _productWriteRepository;
+      
 
         public UpdateProductCommandHandler(IProductReadRepository productReadRepository, IProductWriteRepository productWriteRepository)
         {
@@ -25,7 +26,7 @@ namespace ECommerceAPI.Application.Features.Commands.Product.UpdateProduct
             product.Name = request.Name;
 
             await _productWriteRepository.SaveAsync();
-
+            
             return new();
         }
     }

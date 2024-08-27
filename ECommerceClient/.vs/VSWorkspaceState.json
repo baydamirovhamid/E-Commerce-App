@@ -3,8 +3,15 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\admin",
+    "\\src\\app\\admin\\components",
+    "\\src\\app\\admin\\components\\dashboard",
+    "\\src\\app\\constants",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\common",
     "\\src\\app\\ui",
     "\\src\\app\\ui\\components"
   ],
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

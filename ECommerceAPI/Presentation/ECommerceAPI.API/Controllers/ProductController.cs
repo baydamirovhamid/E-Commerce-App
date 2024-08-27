@@ -19,10 +19,12 @@ namespace ECommerceAPI.API.Controllers
     public class ProductsController : ControllerBase
     { 
         readonly IMediator _mediator;
-        
-        public ProductsController(IMediator mediator)
+        readonly ILogger<ProductsController> _logger;
+
+        public ProductsController(IMediator mediator, ILogger<ProductsController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         [HttpGet]

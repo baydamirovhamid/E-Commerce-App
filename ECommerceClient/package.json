@@ -25,6 +25,7 @@
     "@angular/router": "^18.2.1",
     "@angular/ssr": "^18.2.1",
     "@auth0/angular-jwt": "^5.2.0",
+    "@microsoft/signalr": "^8.0.7",
     "alertify": "^0.3.0",
     "alertifyjs": "^1.14.0",
     "bootstrap": "^5.3.3",

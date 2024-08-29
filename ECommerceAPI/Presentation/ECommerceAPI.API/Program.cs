@@ -1,4 +1,4 @@
-using ECommerceAPI.API.Configurations.ColumnWriters;
+﻿using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
@@ -22,6 +22,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();    // Bu, layerdaki classlar(business logic) vasitesile / Client - dan request neticesinde yaradılan HttpContext obyektinə daxil olmağa imkan veren servisdir.
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();

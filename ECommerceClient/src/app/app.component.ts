@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
-  constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router) {
+export class AppComponent {
+  title = 'ECommerceClient';
 
+  constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router) {
     authService.identityCheck();
   }
 
@@ -24,6 +25,3 @@ export class AppComponent  {
     });
   }
 }
-
-
-

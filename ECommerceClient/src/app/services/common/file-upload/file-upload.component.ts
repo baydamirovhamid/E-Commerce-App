@@ -29,9 +29,7 @@ export class FileUploadComponent {
 
   public selectedFiles(files: NgxFileDropEntry[]) {
     this.files = files;
-
     const fileData: FormData = new FormData();
-
     for (const file of files) {
       (file.fileEntry as FileSystemFileEntry).file((_file: File) => {
         fileData.append(_file.name, _file, file.relativePath);
@@ -43,12 +41,12 @@ export class FileUploadComponent {
       data: FileUploadDialogState.Yes,
       afterClosed: () => {
         this.spinner.show(SpinnerType.BallAtom)
-      this.httpClientService.post({
-        controller: this.options.controller,
-        action: this.options.action,
-        queryString: this.options.queryString,
-        headers: new HttpHeaders({ "reponseType": "blob" })
-      }, fileData).subscribe(data => {
+        this.httpClientService.post({
+          controller: this.options.controller,
+          action: this.options.action,
+          queryString: this.options.queryString,
+          headers: new HttpHeaders({ "responseType": "blob" })
+        }, fileData).subscribe(data => {
 
         const message: string = "The files have been successfully uploaded";
 
@@ -68,13 +66,8 @@ export class FileUploadComponent {
             position: ToastrPosition.TopRight
           })
         }
-
         this.spinner.hide(SpinnerType.BallAtom)
-
-
-      },
-
-        (errorResponse: HttpErrorResponse) => {
+      },(errorResponse: HttpErrorResponse) => {
           const message: string = "Unexpected error occurred!";
           
 
@@ -102,12 +95,11 @@ export class FileUploadComponent {
 }
 
 
-
 export class FileUploadOptions {
   controller?: string;
   action?: string;
   queryString?: string;
   explanation?: string;
   accept?: string;
-  isAdminPage?: boolean=false;
+  isAdminPage?: boolean = false;
 }

@@ -3,24 +3,39 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../ui/custom-toastr.service';
 import { UserAuthService } from './models/user-auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerType } from '../../base/base.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
 
-  constructor(private toastrService: CustomToastrService, private userAuthService: UserAuthService) { }
+  constructor(private toastrService: CustomToastrService, private userAuthService: UserAuthService, private router: Router, private spinner: NgxSpinnerService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(req).pipe(catchError(error => {
       switch (error.status) {
         case HttpStatusCode.Unauthorized:
-          this.toastrService.message("You do not have permission to perform this operation!", "Unauthorized action!", {
+
+          this.userAuthService.refreshTokenLogin(localStorage.getItem("refreshToken"), (state) => {
+            debugger;
+            if (!state) {
+              const url = this.router.url;
+              if (url == "/products")
+                this.toastrService.message("You need to log in to add products to the basket.", "Sign in!", {
             messageType: ToastrMessageType.Warning,
-            position: ToastrPosition.BottomFullWidth
+            position: ToastrPosition.TopRight
           });
-          this.userAuthService.refreshTokenLogin(localStorage.getItem("refreshToken")).then(data => {
+              else
+                this.toastrService.message("You are not authorized to do this process!", "Unauthorized process!", {
+                  messageType: ToastrMessageType.Warning,
+                  position: ToastrPosition.BottomFullWidth
+                });
+            }
+          }).then(data => {
 
           });
 
@@ -38,7 +53,7 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
           });
           break;
         case HttpStatusCode.NotFound:
-          this.toastrService.message("Page not found!", "404 Error!", {
+          this.toastrService.message("Page not found!", "404 Error", {
             messageType: ToastrMessageType.Warning,
             position: ToastrPosition.BottomFullWidth
           });
@@ -50,6 +65,8 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
           });
           break;
       }
+
+      this.spinner.hide(SpinnerType.BallAtom);
       return of(error);
     }));
   }

@@ -13,15 +13,6 @@ export class AppComponent {
   title = 'ECommerceClient';
 
   constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router, httpClientService: HttpClientService) {
-
-    httpClientService.get({
-      controller: "baskets"
-    }).subscribe(data => {
-      debugger;
-    });
-
-
-
     authService.identityCheck();
   }
 

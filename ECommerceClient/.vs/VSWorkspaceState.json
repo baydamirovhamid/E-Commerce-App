@@ -3,12 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\services\\common\\models",
-    "\\src\\app\\ui",
-    "\\src\\app\\ui\\components",
-    "\\src\\app\\ui\\components\\baskets",
-    "\\src\\app\\ui\\components\\products"
+    "\\src\\app\\services",
+    "\\src\\app\\services\\common"
   ],
-  "SelectedNode": "\\src\\app\\ui\\components\\baskets\\baskets.component.html",
+  "SelectedNode": "\\angular.json",
   "PreviewInSolutionExplorer": true
 }

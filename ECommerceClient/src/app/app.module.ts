@@ -38,7 +38,6 @@ import { HttpErrorHandlerInterceptorService } from './services/common/http-error
       config: {
         tokenGetter: () => localStorage.getItem("accessToken"),
         allowedDomains: ["localhost:44374"]
-        
       }
     }),
     SocialLoginModule,

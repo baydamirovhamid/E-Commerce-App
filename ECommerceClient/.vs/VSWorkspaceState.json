@@ -3,9 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\directives",
+    "\\src\\app\\directives\\common",
     "\\src\\app\\services",
-    "\\src\\app\\services\\common"
+    "\\src\\app\\services\\common",
+    "\\src\\app\\ui",
+    "\\src\\app\\ui\\components",
+    "\\src\\app\\ui\\components\\baskets"
   ],
-  "SelectedNode": "\\angular.json",
+  "SelectedNode": "\\src\\app\\services\\common\\http-error-handler-interceptor.service.ts",
   "PreviewInSolutionExplorer": true
 }

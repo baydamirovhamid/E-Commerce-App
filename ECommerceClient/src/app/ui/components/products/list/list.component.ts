@@ -82,7 +82,6 @@ export class ListComponent extends BaseComponent implements OnInit {
 
   }
 
-
   async addToBasket(product: List_Product) {
     this.showSpinner(SpinnerType.BallAtom);
     let _basketItem: Create_Basket_Item = new Create_Basket_Item();
@@ -92,8 +91,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     this.hideSpinner(SpinnerType.BallAtom);
     this.customToastrService.message("The product has been added to the basket.", "Added to the basket", {
       messageType: ToastrMessageType.Success,
-      position: ToastrPosition.TopRight
+      position: ToastrPosition.TopLeft
     });
   }
-
 }

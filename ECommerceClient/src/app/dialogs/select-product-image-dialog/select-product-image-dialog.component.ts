@@ -32,7 +32,7 @@ export class SelectProductImageDialogComponent extends BaseDialog<SelectProductI
     controller: "Products",
     explanation: "Select the product images",
     isAdminPage: true,
-    /*queryString: `id=${this.data}`*/
+  //  queryString: `id=${this.data}`
   };
 
   images: List_Product_Image[];

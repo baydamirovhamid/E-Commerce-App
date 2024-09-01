@@ -44,6 +44,7 @@ import { DynamicLoadComponentDirective } from './directives/common/dynamic-load-
     provideAnimationsAsync(),
     provideHttpClient(withFetch()), // Add this line to enable fetch API
     { provide: 'baseUrl', useValue: 'https://localhost:44374/api', multi: true },
+    { provide: 'baseSignalRUrl', useValue: 'https://localhost:44374/api', multi: true },
     {
       provide: "SocialAuthServiceConfig",
       useValue: {

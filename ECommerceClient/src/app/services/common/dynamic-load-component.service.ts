@@ -11,7 +11,7 @@ export class DynamicLoadComponentService {
   //ComponentFactoryResolver : Belirli bir component için ComponentFactory'i resolve eden sınıftır. İçerisindeki resolveComponentFactory fonksiyonu aracılığıyla ilgili componente dair bir ComponentFactory nesnesi oluşturup, döner.
 
   async loadComponent(component: ComponentType, viewContainerRef: ViewContainerRef) {
-    let _component: Type<any> = null;
+    let _component: any = null;
 
     switch (component) {
       case ComponentType.BasketsComponent:

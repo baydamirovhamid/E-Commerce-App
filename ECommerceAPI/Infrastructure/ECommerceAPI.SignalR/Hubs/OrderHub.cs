@@ -6,3 +6,4 @@ namespace ECommerceAPI.SignalR.Hubs
     {
     }
 }
+ 

@@ -5,11 +5,9 @@
     "\\src\\app",
     "\\src\\app\\admin",
     "\\src\\app\\admin\\components",
-    "\\src\\app\\admin\\components\\dashboard",
-    "\\src\\app\\ui",
-    "\\src\\app\\ui\\components",
-    "\\src\\app\\ui\\components\\baskets"
+    "\\src\\app\\admin\\components\\orders",
+    "\\src\\app\\admin\\components\\orders\\list"
   ],
-  "SelectedNode": "\\src\\app\\ui\\components\\baskets\\baskets.component.ts",
+  "SelectedNode": "\\src\\app\\admin\\components\\orders\\list\\list.component.ts",
   "PreviewInSolutionExplorer": true
 }

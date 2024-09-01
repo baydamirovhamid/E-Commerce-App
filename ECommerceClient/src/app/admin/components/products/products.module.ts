@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import 'alertifyjs/build/css/alertify.css';
 import { FileUploadModule } from '../../../services/common/file-upload/file-upload.module';
 import { DialogModule } from '../../../dialogs/dialog.module';
+import { DeleteDirectiveModule } from '../../../directives/admin/delete.directive.module';
 
 
 @NgModule({
@@ -23,7 +24,6 @@ import { DialogModule } from '../../../dialogs/dialog.module';
     ProductsComponent,
     CreateComponent,
     ListComponent,
-    DeleteDirective,
     
   ],
   imports: [
@@ -31,7 +31,7 @@ import { DialogModule } from '../../../dialogs/dialog.module';
     RouterModule.forChild([
       {path:"", component:ProductsComponent}
     ]),
-    MatSidenavModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatPaginatorModule, MatTableModule, DialogModule,FileUploadModule
+    MatSidenavModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatPaginatorModule, MatTableModule, DialogModule,FileUploadModule, DeleteDirectiveModule
   ]
 })
 export class ProductsModule { }

@@ -1,16 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\admin",
-    "\\src\\app\\admin\\components",
-    "\\src\\app\\admin\\components\\orders",
-    "\\src\\app\\admin\\components\\orders\\list",
-    "\\src\\app\\contracts",
-    "\\src\\app\\contracts\\order",
-    "\\src\\app\\services"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\dialogs\\dialog.module.ts",
   "PreviewInSolutionExplorer": true
 }

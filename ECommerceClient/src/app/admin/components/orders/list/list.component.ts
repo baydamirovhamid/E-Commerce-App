@@ -6,6 +6,8 @@ import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { List_Order } from '../../../../contracts/order/list_order';
+import { DialogService } from '../../../../services/common/dialog.service';
+import { OrderDetailDialogComponent } from '../../../../dialogs/order-detail-dialog/order-detail-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -16,12 +18,13 @@ export class ListComponent extends BaseComponent implements OnInit {
 
   constructor(spinner: NgxSpinnerService,
     private orderService: OrderService,
-    private alertifyService: AlertifyService) {
+    private alertifyService: AlertifyService,
+    private dialogService: DialogService) {
     super(spinner)
   }
 
 
-  displayedColumns: string[] = ['orderCode', 'userName', 'totalPrice', 'createdDate', 'delete'];
+  displayedColumns: string[] = ['orderCode', 'userName', 'totalPrice', 'createdDate','viewdetail', 'delete'];
   dataSource: MatTableDataSource<List_Order> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -43,6 +46,15 @@ export class ListComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     await this.getOrders();
+  }
+  showDetail(id: string) {
+    this.dialogService.openDialog({
+      componentType: OrderDetailDialogComponent,
+      data: id,
+      options: {
+        width: "750px"
+      }
+    });
   }
 
 }

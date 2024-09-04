@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\ui",
+    "\\src\\app\\ui\\components",
+    "\\src\\app\\ui\\components\\login",
+    "\\src\\app\\ui\\components\\update-password"
   ],
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": true
 }

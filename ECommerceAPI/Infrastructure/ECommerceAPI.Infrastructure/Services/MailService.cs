@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
 
 namespace ECommerceAPI.Infrastructure.Services
 {
@@ -14,12 +15,12 @@ namespace ECommerceAPI.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
         {
-            await SendMessageAsync(new[] { to }, subject, body, isBodyHtml);
+            await SendMailAsync(new[] { to }, subject, body, isBodyHtml);
         }
 
-        public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMailAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
         {
             MailMessage mail = new();
             mail.IsBodyHtml = isBodyHtml;
@@ -27,7 +28,7 @@ namespace ECommerceAPI.Infrastructure.Services
                 mail.To.Add(to);
             mail.Subject = subject;
             mail.Body = body;
-            mail.From = new(_configuration["Mail:Username"], "R.I.S.K Company", System.Text.Encoding.UTF8);
+            mail.From = new(_configuration["Mail:Username"], "HB ECommerce", System.Text.Encoding.UTF8);
 
             SmtpClient smtp = new();
             smtp.Credentials = new NetworkCredential(_configuration["Mail:Username"], _configuration["Mail:Password"]);
@@ -36,5 +37,25 @@ namespace ECommerceAPI.Infrastructure.Services
             smtp.Host = _configuration["Mail:Host"];
             await smtp.SendMailAsync(mail);
         }
+
+        public async Task SendPasswordResetMailAsync(string to, string userId, string resetToken)
+        {
+            StringBuilder mail = new();
+            mail.AppendLine("Hello,<br>If you've requested a new password, please use the link below to reset it.<br>");
+
+            //mail.Append(_configuration["AngularClientUrl"]);
+            //mail.Append("/update-password/");
+
+            //mail.Append(userId);
+            //mail.Append("/");
+            mail.Append(resetToken);
+            mail.AppendLine("Click here to request a new password...</a></strong><br><br>HB Mini|E-Commerce");
+
+            await SendMailAsync(to, "Password Reset Request", mail.ToString());
+        }
     }
 }
+
+
+
+

@@ -49,9 +49,16 @@ namespace ECommerceAPI.Infrastructure.Services
             //mail.Append(userId);
             //mail.Append("/");
             mail.Append(resetToken);
-            mail.AppendLine("Click here to request a new password...");
+            mail.AppendLine("Click here to request a new password..");
 
             await SendMailAsync(to, "Password Reset Request", mail.ToString());
+        }
+        public async Task SendCompletedOrderMailAsync(string to, string orderCode, DateTime orderDate, string userName)
+        {
+            string mail = $" Hi {userName} <br>" +
+                $"Your order with the code {orderCode}, which you placed on {orderDate}, has been completed and given to the cargo company..<br>Have a nice day..";
+
+            await SendMailAsync(to, $"Your order with Order Number {orderCode} has been completed", mail);
         }
     }
 }

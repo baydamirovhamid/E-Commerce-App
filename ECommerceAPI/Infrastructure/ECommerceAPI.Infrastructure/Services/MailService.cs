@@ -49,7 +49,7 @@ namespace ECommerceAPI.Infrastructure.Services
             //mail.Append(userId);
             //mail.Append("/");
             mail.Append(resetToken);
-            mail.AppendLine("Click here to request a new password...</a></strong><br><br>HB Mini|E-Commerce");
+            mail.AppendLine("Click here to request a new password...");
 
             await SendMailAsync(to, "Password Reset Request", mail.ToString());
         }

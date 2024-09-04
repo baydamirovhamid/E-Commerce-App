@@ -11,5 +11,7 @@ namespace ECommerceAPI.Domain.Entities
         public string OrderCode { get; set; }
         //public ICollection<Product> Products { get; set; }
         //public Customer Customer { get; set; }
+
+        public CompletedOrder CompletedOrder { get; set; }
     }
 }

@@ -3,11 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\ui",
-    "\\src\\app\\ui\\components",
-    "\\src\\app\\ui\\components\\login",
-    "\\src\\app\\ui\\components\\update-password"
+    "\\src\\app\\admin",
+    "\\src\\app\\admin\\components",
+    "\\src\\app\\admin\\components\\orders",
+    "\\src\\app\\admin\\components\\orders\\list",
+    "\\src\\app\\contracts",
+    "\\src\\app\\contracts\\order",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\assets\\default-product.png",
   "PreviewInSolutionExplorer": true
 }

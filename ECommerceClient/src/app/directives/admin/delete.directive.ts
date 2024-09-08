@@ -20,7 +20,9 @@ export class DeleteDirective {
     private spinner: NgxSpinnerService,
     public dialog: MatDialog,
     private alertifyService: AlertifyService,
-    private dialogService: DialogService) {
+    private dialogService: DialogService)
+
+  {
     const img = _renderer.createElement("img");
     img.setAttribute("src", "../../../../../assets/delete.png");
     img.setAttribute("style", "cursor: pointer;");

@@ -1,16 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\admin",
-    "\\src\\app\\admin\\layout\\components",
-    "\\src\\app\\dialogs",
-    "\\src\\app\\dialogs\\authorize-menu-dialog",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\common",
-    "\\src\\app\\services\\common\\models"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\dialogs\\dialog.module.ts",
   "PreviewInSolutionExplorer": true
 }

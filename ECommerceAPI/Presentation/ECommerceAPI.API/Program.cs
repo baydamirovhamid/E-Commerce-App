@@ -1,4 +1,4 @@
-﻿using ECommerceAPI.API.Configurations.ColumnWriters;
+﻿ using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;

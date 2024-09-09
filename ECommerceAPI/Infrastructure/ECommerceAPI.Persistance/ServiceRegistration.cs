@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Abstractions.Services;
+﻿using ECommerceAPI.Application;
+using ECommerceAPI.Application.Abstractions.Services;
 using ECommerceAPI.Application.Abstractions.Services.Authentications;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities.Identity;
@@ -61,7 +62,11 @@ namespace ECommerceAPI.Persistence
             services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
             services.AddScoped<ICompletedOrderWriteRepository, CompletedOrderWriteRepository>();
 
+            services.AddScoped<IEndpointReadRepository, EndpointReadRepository>();
+            services.AddScoped<IEndpointWriteRepository, EndpointWriteRepository>();
 
+            services.AddScoped<IMenuReadRepository, MenuReadRepository>();
+            services.AddScoped<IMenuWriteRepository, MenuWriteRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
@@ -70,6 +75,7 @@ namespace ECommerceAPI.Persistence
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
 
         }
     }

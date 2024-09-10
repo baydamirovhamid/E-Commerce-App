@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 
-
 @NgModule({
   declarations: [
     AuthorizeMenuComponent
@@ -15,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: " ", component: AuthorizeMenuComponent }
+      { path: "", component: AuthorizeMenuComponent }
     ]),
     MatTreeModule, MatIconModule, MatButtonModule
   ]

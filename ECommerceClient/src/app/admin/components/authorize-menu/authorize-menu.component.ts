@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../../base/base.component';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { DialogService } from '../../../services/common/dialog.service';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { Component, OnInit } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { ApplicationService } from '../../../services/common/models/application.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { BaseComponent } from '../../../base/base.component';
 import { AuthorizeMenuDialogComponent } from '../../../dialogs/authorize-menu-dialog/authorize-menu-dialog.component';
+import { DialogService } from '../../../services/common/dialog.service';
+import { ApplicationService } from '../../../services/common/models/application.service';
 
 interface FoodNode {
   name: string;
@@ -79,7 +79,7 @@ export class AuthorizeMenuComponent extends BaseComponent implements OnInit {
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
-  assignRole(code: string, name: string, menuName:string) {
+  assignRole(code: string, name: string, menuName: string) {
     this.dialogService.openDialog({
       componentType: AuthorizeMenuDialogComponent,
       data: { code: code, name: name, menuName: menuName },

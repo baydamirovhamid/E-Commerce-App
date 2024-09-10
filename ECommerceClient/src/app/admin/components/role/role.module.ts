@@ -13,6 +13,7 @@ import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
 
 
+
 @NgModule({
   declarations: [
     RoleComponent,
@@ -22,7 +23,7 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: " ", component: RoleComponent }
+      { path: "", component: RoleComponent }
     ]),
     MatSidenavModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule,
     DeleteDirectiveModule

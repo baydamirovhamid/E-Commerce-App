@@ -4,7 +4,7 @@ import { ListComponent } from './list/list.component';
 @Component({
   selector: 'app-role',
   templateUrl: './role.component.html',
-  styleUrl: './role.component.scss'
+  styleUrls: ['./role.component.scss']
 })
 export class RoleComponent implements OnInit {
 

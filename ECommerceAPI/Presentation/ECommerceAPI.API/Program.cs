@@ -1,5 +1,6 @@
 ﻿ using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
+using ECommerceAPI.API.Filters;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
@@ -69,7 +70,11 @@ builder.Services.AddHttpLogging(logging =>
 });
 
 
-builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ValidationFilter>();
+    options.Filters.Add<RolePermissionFilter>();
+})
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
     .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 

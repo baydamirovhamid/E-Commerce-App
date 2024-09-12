@@ -5,13 +5,11 @@
     "\\src\\app",
     "\\src\\app\\admin",
     "\\src\\app\\admin\\components",
-    "\\src\\app\\admin\\components\\role\\create",
-    "\\src\\app\\admin\\components\\role\\list",
-    "\\src\\app\\admin\\components\\user",
-    "\\src\\app\\admin\\components\\user\\list",
-    "\\src\\app\\dialogs",
-    "\\src\\app\\dialogs\\authorize-user-dialog"
+    "\\src\\app\\admin\\components\\orders",
+    "\\src\\app\\admin\\components\\orders\\list",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\common"
   ],
-  "SelectedNode": "\\src\\app\\admin\\components\\user\\list\\list.component.ts",
+  "SelectedNode": "\\src\\app\\admin\\components\\orders\\list\\list.component.ts",
   "PreviewInSolutionExplorer": true
 }

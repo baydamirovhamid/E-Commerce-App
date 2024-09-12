@@ -35,6 +35,10 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
                 });
             }
           }).then(data => {
+            this.toastrService.message("You are not authorized to do this process!", "Unauthorized process!", {
+              messageType: ToastrMessageType.Warning,
+              position: ToastrPosition.TopLeft
+            });
 
           });
 

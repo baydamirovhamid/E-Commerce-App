@@ -33,3 +33,29 @@ The **MediatR pattern** organizes the chaotic flow into a more structured form b
 This design focuses on what objects will communicate rather than how they will communicate with each other.
 
 **MediatR** - suggests that instead of direct communication between objects that need to interact, their calls should be handled indirectly through a special mediator (MediatR) object, ensuring independence between the objects.
+
+
+
+
+
+# RabbitMQ 
+
+**What is RabbitMQ?**
+
+- It was developed with Erlang by LShift and CohesiveFT companies in 2007.
+- It is an open source message queuing system (Message Queue)
+- Facilitates communication between non-connected systems (Cross). (Async)
+- Supports AMQP, HTTP and MQTT protocols
+
+**Where is it used?**
+
+- In transactions where background services are very,
+- In areas where instant transactions are not very important,
+- In operations where data consistency is very important
+- In transactions where the transaction volume is large
+
+**What are the components?**
+
+![Process](https://www.cloudamqp.com/img/blog/rabbitmq-beginners-updated.png)
+
+
